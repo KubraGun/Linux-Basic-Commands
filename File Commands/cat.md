@@ -1,41 +1,65 @@
-# **cat (concatenate)**
+ï»¿# **cat (concatenate)**
 
-cat (concatenate) komutu, dosya içeriğini standart çıktıya (ekrana) tazdırmak için kullanılır.
-
-
-## Normal Kullanım Senaryoları
+cat (concatenate) komutu, dosya iÃ§eriÄŸini standart Ã§Ä±ktÄ±ya (ekrana) tazdÄ±rmak iÃ§in kullanÄ±lÄ±r.
 
 
-### Konfigürasyon dosyası okuma
+## Normal KullanÄ±m SenaryolarÄ±
+
+
+### KonfigÃ¼rasyon dosyasÄ± okuma
 
 ```bash
 cat /etc/hosts
 ```
 
-- Sistemin hosts dosyasını okur.
-- IP adresi ve alan adı eşleşmelerini gösterir
-- Linux sistemleri varsayılan olarak bir alan adı çözümlerken "etc/hosts" dosyasına bakar, eğer orada bulamazsa DNS sunucusuna gider. Bu örnek DNS çözümleme sorunlarında ilk kontrol noktasıdır. (Çünkü sistem DNS sunucusuna sormadan önce öncelikli olarak bu dosyaya bakar)
-- [ÖNEMLİ NOT]: DNS sunucu IP'leri (nameserver) için bu dosyaya değil "cat /etc/resolv.conf" dosyasına bakılır.
+- Sistemin hosts dosyasÄ±nÄ± okur.
+- IP adresi ve alan adÄ± eÅŸleÅŸmelerini gÃ¶sterir
+- Linux sistemleri varsayÄ±lan olarak bir alan adÄ± Ã§Ã¶zÃ¼mlerken "etc/hosts" dosyasÄ±na bakar, eÄŸer orada bulamazsa DNS sunucusuna gider. Bu Ã¶rnek DNS Ã§Ã¶zÃ¼mleme sorunlarÄ±nda ilk kontrol noktasÄ±dÄ±r. (Ã‡Ã¼nkÃ¼ sistem DNS sunucusuna sormadan Ã¶nce Ã¶ncelikli olarak bu dosyaya bakar)
+- [Ã–NEMLÄ° NOT]: DNS sunucu IP'leri (nameserver) iÃ§in bu dosyaya deÄŸil "cat /etc/resolv.conf" dosyasÄ±na bakÄ±lÄ±r.
 
 
-### Küçük log dosyası inceleme
+### KÃ¼Ã§Ã¼k log dosyasÄ± inceleme
 
 ```bash
 cat error.log
 ```
 
-- Hata loglarını anında terminal ekranına döker
-- 100 - 200 satırlık dosyalar bu komut için ideal boyuttatır. Bu dosyaları okumak için en pratik yöntemdir.
-- Editör açmaya gerek kalmadan içeriye göz atmayı (anlık kontrolü) ve hızlı debug imkanı sağlar.
+- Hata loglarÄ±nÄ± anÄ±nda terminal ekranÄ±na dÃ¶ker
+- 100 - 200 satÄ±rlÄ±k dosyalar bu komut iÃ§in ideal boyuttatÄ±r. Bu dosyalarÄ± okumak iÃ§in en pratik yÃ¶ntemdir.
+- EditÃ¶r aÃ§maya gerek kalmadan iÃ§eriye gÃ¶z atmayÄ± (anlÄ±k kontrolÃ¼) ve hÄ±zlÄ± debug imkanÄ± saÄŸlar.
 
 
-### Environment değişkenleri kontrolü
+### Environment deÄŸiÅŸkenleri kontrolÃ¼
 
 ```bash
 cat .env
 ```
 
-- Uygulamaların DB bağlantıları veya API anahtarları... gibi kritik çalışma ayarlarını görüntüler. 
-- Gizli dosya statüsünde olsa da, konfigürasyon doğrulaması yapmak için doğrudan içeriği okunabilir.
-- Hassas şifreleri ve anahtarları açıkça döktüğü için, özellikler ekran paylaşımı sırasında veya kalabalık ortamlarda güvenlik açısından dikkatli olunmalıdır.
+- UygulamalarÄ±n DB baÄŸlantÄ±larÄ± veya API anahtarlarÄ±... gibi kritik Ã§alÄ±ÅŸma ayarlarÄ±nÄ± gÃ¶rÃ¼ntÃ¼ler. 
+- Gizli dosya statÃ¼sÃ¼nde olsa da, konfigÃ¼rasyon doÄŸrulamasÄ± yapmak iÃ§in doÄŸrudan iÃ§eriÄŸi okunabilir.
+- Hassas ÅŸifreleri ve anahtarlarÄ± aÃ§Ä±kÃ§a dÃ¶ktÃ¼ÄŸÃ¼ iÃ§in, Ã¶zellikler ekran paylaÅŸÄ±mÄ± sÄ±rasÄ±nda veya kalabalÄ±k ortamlarda gÃ¼venlik aÃ§Ä±sÄ±ndan dikkatli olunmalÄ±dÄ±r.
 
+### README veya dokÃ¼mantasyon okuma
+
+```bash
+cat README.md
+```
+
+-Bir geliÅŸtiricinin proje dizinine girdiÄŸinde projeyi anlamak iÃ§in yaptÄ±ÄŸÄ± ilk iÅŸtir.
+- Bu komut projenin dokÃ¼mantasyon dosyasÄ±nÄ±, Markdown etiketlerini (#, * vb.) olduÄŸu gibi yorumlamadan, ham metin olarak gÃ¶sterir.
+- BiÃ§imlendirme gÃ¶zrÃ¼nmese de iÃ§erik tamamen okunabilir durumdadÄ±r.
+- Proje indirildiÄŸinde kod editÃ¶rÃ¼ aÃ§maya gerek kalmadan talimatlara ve komutlara hÄ±zlÄ±ca gÃ¶z atmayÄ± saÄŸlar.
+
+
+### Birden fazla dosyayÄ± birleÅŸtirme
+
+```bash
+cat file1.txt file2.txt > combined.txt
+```
+
+- Birden fazla dosyanÄ±n iÃ§eriÄŸini sÄ±rayla okur ve tek dosyada birleÅŸtirir.
+- ">" hedef dosyayÄ± sÄ±fÄ±rdan yazar. EÄŸer combined.txt varsa , iÃ§indeki eski verileri tamamen siler ve yeni iÃ§eriÄŸi yazar â†’ overwrite
+- ">>" hedef dosyayÄ± silmez, Yeni gelen verileri mevcut dosyanÄ±n en sonuna ekler â†’ append
+- Ã–zellikle parÃ§a parÃ§a duran log dosyalarÄ±nÄ± veya veri setlerini tek bir merkezde toplamak iÃ§in kullanÄ±lÄ±r.
+- [Ã–NEMLÄ° NOT]: Okunan bir dosya ">" ile kendisine yÃ¶nlendirilmemeli, aksi takdire dosya iÃ§eriÄŸi yazma baÅŸlamadan tamamen silinir.
+- BirleÅŸtirilen dosyanÄ±n sonunda boÅŸ bir satÄ±r yoksa (enter ile alt satÄ±ra geÃ§ilmemiÅŸse) son karakter neredeyse hemen onun bitiÅŸiÄŸine yapÄ±ÅŸÄ±k olarak yazÄ±lÄ±r.
