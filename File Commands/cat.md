@@ -1,6 +1,6 @@
 ﻿# **cat (concatenate)**
 
-cat (concatenate) komutu, dosya içeriğini standart çıktıya (ekrana) tazdırmak için kullanılır.
+cat (concatenate) komutu, dosya içeriğini standart çıktıya (ekrana) yazdırmak için kullanılır.
 
 
 ## Normal Kullanım Senaryoları
